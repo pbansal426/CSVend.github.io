@@ -1,8 +1,15 @@
 from flask import Flask, render_template, url_for
+from flask_sqlalchemy import SQLAlchemy
+
+
+db = SQLAlchemy()
+DB_NAME = "database.db"
 
 
 app = Flask(__name__)
-
+app.config['SECRET_KEY'] = 'VHHS'
+app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
+db.init_app(app)
 
 
 
